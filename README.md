@@ -1,1 +1,1 @@
-# Namaste-DSA
+# Namaste DSA
