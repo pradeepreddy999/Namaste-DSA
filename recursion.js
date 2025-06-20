@@ -58,8 +58,39 @@ const isPowerOf2 = (n) => {
 //   return isPowerOf2(n / 2);
 // };
 
-console.log(isPowerOf2(7));
-console.log(isPowerOf2(8));
-console.log(isPowerOf2(0));
-console.log(isPowerOf2(1));
-console.log(isPowerOf2(2));
+// console.log(isPowerOf2(7));
+// console.log(isPowerOf2(8));
+// console.log(isPowerOf2(0));
+// console.log(isPowerOf2(1));
+// console.log(isPowerOf2(2));
+
+// fibonacci numbers recursively
+const fibonacci = (n) => {
+  if (n === 0 || n === 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+
+// iterative approach
+// const fibonacci = (n) => {
+//   let result = [];
+//   for (let i = 0; i <= n; i++) {
+//     if (i < 2) result.push(i);
+//     else result.push(result[i - 1] + result[i - 2]);
+//   }
+//   return result[n];
+// };
+
+// const fibonacci = (n) => {
+//   if (n === 0 || n === 1) return n;
+
+//   let first = 0;
+//   let second = 1;
+//   for (let i = 2; i <= n; i++) {
+//     let temp = first;
+//     first = second;
+//     second = temp + second;
+//   }
+//   return second;
+// };
+
+console.log(fibonacci(5));
