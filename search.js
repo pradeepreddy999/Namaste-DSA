@@ -7,5 +7,23 @@ const linearSearch = (arr, target) => {
   return -1;
 };
 
-console.log(linearSearch([5, 3, 4, 6, 0, 7], 4));
-console.log(linearSearch([5, 3, 4, 6, 0, 7], 8));
+// console.log(linearSearch([5, 3, 4, 6, 0, 7], 4));
+// console.log(linearSearch([5, 3, 4, 6, 0, 7], 8));
+
+const binarySearch = (nums, target) => {
+  let left = 0;
+  let right = nums.length - 1;
+
+  while (right >= left) {
+    let middle = Math.floor((right + left) / 2);
+
+    if (nums[middle] === target) return middle;
+    else if (nums[middle] > target) right = middle - 1;
+    else left = middle + 1;
+  }
+
+  return -1;
+};
+
+console.log(linearSearch([-1, 0, 3, 5, 9, 12], 9));
+console.log(linearSearch([-1, 0, 3, 5, 9, 12], 2));
