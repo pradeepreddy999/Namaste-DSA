@@ -23,11 +23,8 @@ const lengthOfLastWord3 = (s) => {
   let count = 0;
   while (i > -1) {
     if (count > 0 && s[i] === " ") break;
-    else if (s[i] === " ") i--;
-    else {
-      count++;
-      i--;
-    }
+    else if (s[i] !== " ") count++;
+    i--;
   }
 
   return count;
