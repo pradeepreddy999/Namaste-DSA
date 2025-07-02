@@ -4,8 +4,9 @@
 
 // m - no of words
 // n - max length of a word
+// k - no of indices matching x
 // Time Complexity O(m*n)
-// Space Complexity O(1)
+// Space Complexity O(k)
 
 const findWordsContaining = (words, x) => {
   let result = [];
