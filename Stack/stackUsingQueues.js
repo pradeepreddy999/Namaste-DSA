@@ -8,6 +8,7 @@
 // int top() Returns the element on the top of the stack.
 // boolean empty() Returns true if the stack is empty, false otherwise.
 
+// using two queues
 var MyStack = function () {
   this.q1 = [];
   this.q2 = [];
@@ -50,4 +51,40 @@ MyStack.prototype.top = function () {
 
 MyStack.prototype.empty = function () {
   return this.q1.length === 0;
+};
+
+// using only one queue
+
+var MyStack = function () {
+  this.q = [];
+};
+
+MyStack.prototype.push = function (x) {
+  this.q.push(x);
+};
+
+MyStack.prototype.pop = function () {
+  let n = this.q.length;
+  while (n > 1) {
+    this.q.push(this.q.shift());
+    n--;
+  }
+  return this.q.shift();
+};
+
+MyStack.prototype.top = function () {
+  let n = this.q.length;
+  while (n > 1) {
+    this.q.push(this.q.shift());
+    n--;
+  }
+
+  let temp = this.q.shift();
+  this.q.push(temp);
+
+  return temp;
+};
+
+MyStack.prototype.empty = function () {
+  return this.q.length === 0;
 };
