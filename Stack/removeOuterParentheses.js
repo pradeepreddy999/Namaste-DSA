@@ -29,3 +29,22 @@ const removeOuterParentheses = (s) => {
 
   return result;
 };
+
+// without stack
+
+const removeOuterParentheses2 = (s) => {
+  let level = 0;
+  let result = "";
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "(") {
+      level++;
+      result += level > 1 ? s[i] : "";
+    } else {
+      result += level > 1 ? s[i] : "";
+      level--;
+    }
+  }
+
+  return result;
+};
