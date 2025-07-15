@@ -31,3 +31,24 @@ const evalRPN = (tokens) => {
 
   return Number(stack.pop());
 };
+
+const evalRPN2 = (tokens) => {
+  let stack = [];
+  const map = {
+    "+": (a, b) => a + b,
+    "*": (a, b) => a * b,
+    "-": (a, b) => a - b,
+    "/": (a, b) => Math.trunc(a / b),
+  };
+  for (let i = 0; i < tokens.length; i++) {
+    if (map[tokens[i]]) {
+      const b = stack.pop();
+      const a = stack.pop();
+      const ans = map[tokens[i]](+a, +b);
+      stack.push(ans);
+    } else {
+      stack.push(tokens[i]);
+    }
+  }
+  return Number(stack.pop());
+};
