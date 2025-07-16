@@ -64,3 +64,54 @@ const orangesRotting = (grid) => {
 
   return minutes;
 };
+
+const orangesRotting2 = (grid) => {
+  const m = grid.length;
+  const n = grid[0].length;
+
+  const queue = [];
+  // first add rotten to queue;
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (grid[i][j] === 2) queue.push([i, j, 0]);
+    }
+  }
+
+  let minutes = 0;
+  let rottenLen = queue.length;
+  // mark adj nodes as rotten and push into queue untill it's empty
+  while (queue.length) {
+    const [rX, rY, min] = queue.shift();
+
+    [
+      [-1, 0],
+      [0, -1],
+      [0, 1],
+      [1, 0],
+    ].forEach(([i, j]) => {
+      const rowInd = rX + i;
+      const colInd = rY + j;
+      if (
+        rowInd > -1 &&
+        rowInd < m &&
+        colInd > -1 &&
+        colInd < n &&
+        grid[rowInd][colInd] === 1
+      ) {
+        queue.push([rowInd, colInd, min + 1]);
+        grid[rowInd][colInd] = 2;
+      }
+    });
+
+    minutes = Math.max(minutes, min);
+  }
+
+  // traverse the grid to check if any orange is fresh
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (grid[i][j] === 1) return -1;
+    }
+  }
+
+  return minutes;
+};
