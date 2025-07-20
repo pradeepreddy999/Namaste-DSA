@@ -19,9 +19,9 @@ const singleNonDuplicate = (nums) => {
     }
     // pair exists on right
     else if (nums[m] === nums[m + 1]) {
-      let leftCount = m - 1 - l;
-      if (leftCount % 2 === 1) l = m + 2;
-      else r = m - 1;
+      let leftCount = m - l;
+      if (leftCount % 2 === 1) r = m - 1;
+      else l = m + 2;
     } else {
       return nums[m];
     }
