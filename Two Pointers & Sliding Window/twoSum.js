@@ -15,6 +15,7 @@ const twoSum = (nums, target) => {
   }
 };
 
+// time complexity O(n), space complexity O(n)
 const twoSum2 = (nums, target) => {
   let map = {};
   for (let i = 0; i < nums.length; i++) {
